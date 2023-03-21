@@ -42,6 +42,63 @@ code .
 npm start
 ```
 
+## First Changes to the App
+1. Delete the "App.css" file.
+2. Delete the "App.test.tsx" file.
+3. Open the "App.tsx" file.
+4. Delete those three lines:
+- import React from 'react';
+- import logo from './logo.svg';
+- import './App.css';
+5. Delete all "header" Element (lines 5 to 18 aprox.)
+6. Delete the className.
+7. Transform the "div" just in a fragment
+>This si the final result into "App.tsx" file:
+```javascript
+function App() {
+  return (
+    <>
+      <h1>Hola Mundo</h1>
+    </>
+  );
+}
+
+export default App;
+```
+8. Delete the "index.css" file.
+9. Open the "index.tsx" file.
+10. Delete some elements to let "index.tsx" like this:
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+```
+11. Delete the "logo.svg" file. 
+12. Delete the "repostWebVitals.ts" file
+13. Go to the https://getbootstrap.com/ page
+14. Go the element "Include via CND" and copy the link
+```sh
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@...">
+```
+15. Open in "Public" directory the "index.html" file.
+16. And paste below of this line:
+```sh
+<title>React App</title>
+```
+>Almost line 28
+17. Add in the "body" of "index.html" a class:
+```sh
+<body class ="container bg-dark text-white">
+```
 
 ## License
 
