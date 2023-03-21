@@ -22,7 +22,7 @@ node --version
 
 3. Run the command to create the project 
 ```sh
-npx create-react-app react_n_typescript --template typescript
+npx create-react-app react_n_typescript -template typescript
 ```
 4. Move to the new directory
 ```sh
@@ -41,7 +41,8 @@ code .
 ```sh
 npm start
 ```
-
+## First element in the project
+1. 
 
 ## License
 
