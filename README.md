@@ -86,19 +86,37 @@ root.render(
 12. Delete the "repostWebVitals.ts" file
 13. Go to the https://getbootstrap.com/ page
 14. Go the element "Include via CND" and copy the link
-```sh
+```javascript
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@...">
 ```
 15. Open in "Public" directory the "index.html" file.
 16. And paste below of this line:
-```sh
+```javascript
 <title>React App</title>
 ```
 >Almost line 28
 17. Add in the "body" of "index.html" a class:
-```sh
+```html
 <body class ="container bg-dark text-white">
 ```
+
+## useState
+
+[React + TypeScript: useState](https://www.youtube.com/watch?v=m38MANQfjvo)
+1. Create into "src" directory another called "components" directory.
+2. Create a file called "Counter.tsx" file.
+3. Write "rafc" and it will complete the bacic element of this component file.
+4. Always delete the first line:
+```javascript
+import React from 'react'
+```
+>It is not ncessary, because the last Reac version.
+5. Add the "Counter" into the "App.tsx" file.
+6. add in "Counter.tsx" this line:
+```javascript
+const [counter, setcounter] = useState(0);
+```
+7. the "Counter.tsx" file fill have an "State" value (number) and three buttons to add 1, add 2 and back to 0.
 
 ## License
 
