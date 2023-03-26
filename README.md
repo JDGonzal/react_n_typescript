@@ -117,6 +117,11 @@ import React from 'react'
 const [counter, setcounter] = useState(0);
 ```
 7. the "Counter.tsx" file fill have an "State" value (number) and three buttons to add 1, add 2 and back to 0.
+8. Create another component called "Users.tsx".
+9. Remember "rafc" snipet and delete the first line.
+10. Add in "App.tsx" the "Users" component
+11. Play with and object for the user.
+12. Add an _Interface_ to define the structure of the Object.
 
 ## License
 
