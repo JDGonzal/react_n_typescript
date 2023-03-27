@@ -123,6 +123,40 @@ const [counter, setcounter] = useState(0);
 11. Play with and object for the user.
 12. Add an _Interface_ to define the structure of the Object.
 
+## useEffect + useRef + Custom Props
+[React + TypeScript: useEffect + useRef + Custom Props](https://www.youtube.com/watch?v=gEFnZAj1qEE)
+
+1. Some stetical adjust to "Counter" and "User" components.
+2. Add a Component called "TimerMaster", remember "rafc" snipet and delete the first line.
+3. Add component "Timer.tsx" to feed the "TimerMaster".
+4. thi is the basic component "Timer":
+```javascript
+  const [segundos, setSegundos] = useState(0);
+
+  useEffect(() => {
+    setInterval(()=> setSegundos(s => s+1), 1000);
+  }, [])
+  
+  return (
+    <>
+    <h4>Timer: <small>{segundos}</small></h4>
+    </>
+  ```
+5. Into "TimeMaster" set the millisec in 1000 or 2000, to send to "Timer".
+6. "Timer" will recive this value in an Argument previous defined.
+```javascript
+type TimerArgs = { milliseconds: number};
+```
+7. Set the interval to put into a ref
+```javascript
+ref.current=setInterval(()=> setSegundos(s => s+1), milliseconds);
+```
+8. The ref is defined based on "setInterval type
+```javascript
+ const ref = useRef<NodeJS.Timeout>();
+```
+9. It is how to pass a reference data from a Father or Master to the son.
+
 ## License
 
 MIT
