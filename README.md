@@ -129,7 +129,7 @@ const [counter, setcounter] = useState(0);
 1. Some stetical adjust to "Counter" and "User" components.
 2. Add a Component called "TimerMaster", remember "rafc" snipet and delete the first line.
 3. Add component "Timer.tsx" to feed the "TimerMaster".
-4. thi is the basic component "Timer":
+4. this is the basic component "Timer":
 ```javascript
   const [segundos, setSegundos] = useState(0);
 
@@ -156,6 +156,16 @@ ref.current=setInterval(()=> setSegundos(s => s+1), milliseconds);
  const ref = useRef<NodeJS.Timeout>();
 ```
 9. It is how to pass a reference data from a Father or Master to the son.
+
+## useReducer
+[React + TypeScript: useReducer](https://www.youtube.com/watch?v=jJJNocMtGCg)
+
+1. Create a new component called "CounterRed" as _reducer_, remember "rafc" snipet and delete the first line.
+2. Add to "App.tsx"...
+3. Changes in "CounterRed": 
+- Definition of _ActionType_ : Separted by a pipe (```|```).
+- Add a Switch into "ContadorReducer" with the option defined in _ActionType_.
+- Activate the "useReducer"
 
 ## License
 
