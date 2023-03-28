@@ -178,6 +178,9 @@ ref.current=setInterval(()=> setSegundos(s => s+1), milliseconds);
 6. Those elements has an _onChange_ point to a funtion called "handleChange".
 7. The initial type is _any_ but it is better to use _ChangeEvent_ type.
 8. Adding the complete type to _ChangeEven_ it is ```<HTMLInputElement>```.
+9. Change the simple _ev_ (Event) to the main element _targe_.
+10. Improvement into "handreChange_ to define in a const: ```const {name, value} = target;```.
+11. 
 
 ## License
 
