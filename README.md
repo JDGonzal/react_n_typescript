@@ -180,7 +180,21 @@ ref.current=setInterval(()=> setSegundos(s => s+1), milliseconds);
 8. Adding the complete type to _ChangeEven_ it is ```<HTMLInputElement>```.
 9. Change the simple _ev_ (Event) to the main element _targe_.
 10. Improvement into "handreChange_ to define in a const: ```const {name, value} = target;```.
-11. 
+11. Create a "hooks" directory.
+12. Create a file "useForm.tsx". The Hoolks always start with "use" word.
+13. Write "rafc" snipent and delete the first line and the elements inside the function.
+14. Create an exported function, and copy the form 4 to 14 lines.
+15. In Form get the posible fields as argument:
+ ```export const useForm = ( initState: any ) => {```.
+ 16. Toggle in Comment all copied as 4 to 14 lines.
+ 17. Call the "useForm" with initial values and getting the form and handleChange:
+ ```javascript
+ const {form,handleChange}= useForm({
+    email:'',
+    nombre:''
+  });
+ ```
+ 18. 
 
 ## License
 
