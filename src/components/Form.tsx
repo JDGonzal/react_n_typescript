@@ -1,17 +1,23 @@
-import { ChangeEvent, useState } from "react";
+// import { ChangeEvent, useState } from "react";
+import { useForm } from '../hooks/useForm';
 
 export const Form = () => {
-  const [form, setForm] = useState({
-    email: "",
-    nombre: "",
-  });
 
-  const handleChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
-    // console.log(`${target.name}: ${target.value}`);
-    const { name, value } = target;
-    // console.log(`${name}: ${value}`);
-    setForm({ ...form, [name]: value });
-  };
+  const {form,handleChange}= useForm({
+    email:'',
+    nombre:''
+  });
+  // const [form, setForm] = useState({
+  //   email: "",
+  //   nombre: "",
+  // });
+
+  // const handleChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
+  //   // console.log(`${target.name}: ${target.value}`);
+  //   const { name, value } = target;
+  //   // console.log(`${name}: ${value}`);
+  //   setForm({ ...form, [name]: value });
+  // };
 
   return (
     <form autoComplete="off">
