@@ -194,7 +194,7 @@ ref.current=setInterval(()=> setSegundos(s => s+1), milliseconds);
     nombre:''
   });
  ```
- 18. 
+ 18. Into the "Form" add an _interface_ to avoid the _any_, and use the correct data structure.
 
 ## License
 

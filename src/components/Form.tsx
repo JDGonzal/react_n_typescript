@@ -1,11 +1,17 @@
 // import { ChangeEvent, useState } from "react";
-import { useForm } from '../hooks/useForm';
+import { useForm } from "../hooks/useForm";
+
+interface FormData {
+  email: string;
+  nombre: string;
+  edad : number;
+}
 
 export const Form = () => {
-
-  const {form,handleChange}= useForm({
-    email:'',
-    nombre:''
+  const { form, handleChange } = useForm<FormData>({
+    email: "",
+    nombre: "",
+    edad:18,
   });
   // const [form, setForm] = useState({
   //   email: "",
@@ -19,6 +25,8 @@ export const Form = () => {
   //   setForm({ ...form, [name]: value });
   // };
 
+  const {email, nombre, edad}=form;
+
   return (
     <form autoComplete="off">
       <div className="mb-3">
@@ -27,6 +35,7 @@ export const Form = () => {
           type="email"
           className="form-control"
           name="email"
+          value={email}
           onChange={handleChange}
         />
       </div>
@@ -36,6 +45,17 @@ export const Form = () => {
           type="text"
           className="form-control"
           name="nombre"
+          value={nombre}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="mb-3">
+        <label className="form-label">Nombre:</label>
+        <input
+          type="number"
+          className="form-control"
+          name="edad"
+          value={edad}
           onChange={handleChange}
         />
       </div>
