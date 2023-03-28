@@ -2,7 +2,7 @@
 ## _Course Based on Youtube video with Fernando Herrera_
  [![@DevTalles](images/2023-03-21_114611.png)](https://www.youtube.com/watch?v=dNxaP_BTtwQ)
 
-## Initial Steps to start the project:
+## 0.a. Initial Steps to start the project:
 1. Use or create a directory for react tutorials (the mine is in the unit "E:")
 ```sh
 e:
@@ -42,7 +42,7 @@ code .
 npm start
 ```
 
-## First Changes to the App
+## 0.b. First Changes to the App
 1. Delete the "App.css" file.
 2. Delete the "App.test.tsx" file.
 3. Open the "App.tsx" file.
@@ -100,7 +100,7 @@ root.render(
 <body class ="container bg-dark text-white">
 ```
 
-## useState
+## 1. useState
 
 [React + TypeScript: useState](https://www.youtube.com/watch?v=m38MANQfjvo)
 1. Create into "src" directory another called "components" directory.
@@ -123,7 +123,7 @@ const [counter, setcounter] = useState(0);
 11. Play with and object for the user.
 12. Add an _Interface_ to define the structure of the Object.
 
-## useEffect + useRef + Custom Props
+## 2. useEffect + useRef + Custom Props
 [React + TypeScript: useEffect + useRef + Custom Props](https://www.youtube.com/watch?v=gEFnZAj1qEE)
 
 1. Some stetical adjust to "Counter" and "User" components.
@@ -157,15 +157,27 @@ ref.current=setInterval(()=> setSegundos(s => s+1), milliseconds);
 ```
 9. It is how to pass a reference data from a Father or Master to the son.
 
-## useReducer
+## 3. useReducer
 [React + TypeScript: useReducer](https://www.youtube.com/watch?v=jJJNocMtGCg)
 
 1. Create a new component called "CounterRed" as _reducer_, remember "rafc" snipet and delete the first line.
-2. Add to "App.tsx"...
+2. Add to "App.tsx".
 3. Changes in "CounterRed": 
 - Definition of _ActionType_ : Separted by a pipe (```|```).
 - Add a Switch into "ContadorReducer" with the option defined in _ActionType_.
-- Activate the "useReducer"
+- Activate the "useReducer".
+
+## 4. customHooks
+[React + TypeScripts: customHooks](https://www.youtube.com/watch?v=HrV0HeGnzIw)
+
+1. Change the Order in the "App.tsx" file.
+2. Create a "Form.tsx" file, "rafc" snipet and delete the first line.
+3. Add the "Form" to "App.tsx" file
+4. Change in "Form.tsx", the ```<div>``` by the ```<form>```.
+5. Complete the Form with data to ask to user as: Email and Name.
+6. Those elements has an _onChange_ point to a funtion called "handleChange".
+7. The initial type is _any_ but it is better to use _ChangeEvent_ type.
+8. Adding the complete type to _ChangeEven_ it is ```<HTMLInputElement>```.
 
 ## License
 
