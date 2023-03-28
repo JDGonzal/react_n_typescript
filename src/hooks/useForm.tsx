@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 
 // export function useForm<T> (initState:T){
-export const useForm = <T extends Object>(initState: T ) => {
+export const useForm = <T extends Object>(initState: T) => {
   const [form, setForm] = useState(initState);
 
   const handleChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
@@ -10,5 +10,5 @@ export const useForm = <T extends Object>(initState: T ) => {
     // console.log(`${name}: ${value}`);
     setForm({ ...form, [name]: value });
   };
-  return {form, handleChange};
-}
+  return { form, handleChange, ...form };
+};

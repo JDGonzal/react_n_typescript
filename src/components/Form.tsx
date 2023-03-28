@@ -8,7 +8,7 @@ interface FormData {
 }
 
 export const Form = () => {
-  const { form, handleChange } = useForm<FormData>({
+  const { form, handleChange, email, nombre, edad } = useForm<FormData>({
     email: "",
     nombre: "",
     edad:18,
@@ -25,7 +25,7 @@ export const Form = () => {
   //   setForm({ ...form, [name]: value });
   // };
 
-  const {email, nombre, edad}=form;
+  // const {email, nombre, edad}=form;
 
   return (
     <form autoComplete="off">

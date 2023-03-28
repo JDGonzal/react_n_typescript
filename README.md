@@ -195,6 +195,15 @@ ref.current=setInterval(()=> setSegundos(s => s+1), milliseconds);
   });
  ```
  18. Into the "Form" add an _interface_ to avoid the _any_, and use the correct data structure.
+ 19. Into the "useForm" change the _any_ by "T" , adding some elements to do an _extends_: function
+ ```javascript
+export const useForm = <T extends Object>(initState: T ) => {
+  const [form, setForm] = useState(initState);
+ ```
+ 20. Into "Form" and "Form2" call the same structure.
+ 21. Return form "useForm" all include the "form" as unstructured way: ```return { form, handleChange, ...form };```
+ 22. I can get the values in the return: ```const { form, handleChange, email, nombre, edad } = useForm<FormData>```
+ 23. And use without this line : ```// const {email, nombre, edad}=form;```
 
 ## License
 
