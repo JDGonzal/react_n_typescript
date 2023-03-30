@@ -236,6 +236,32 @@ interface props{
 15. Change the "any" in the ```export``` line by "props" , the new interface.
 16.3 Add the "TodoProvider" in the "Todo.tsx" it is the roor, and I'll need all the info from there: ```<TodoProvider>```
 16. Remember to import into "Todo.tsx" the "TodoProvider": ```import { TodoProvider } from './context/TodoProvider';```
+17. Add in "TotoProvider.tsx" an ```INITIAL_STATE``` with an Object.
+18. Add a "interfaces.ts" file into interfaces.directory.
+19. Create two _interfaces_: 
+- Todo
+- TodoState
+20. Assign "TodoState" to the ```INITAL_STATE```, as definition type
+```javascript
+const INITIAL_STATE: TodoState = {
+```
+>Remember Import "TodoState" into "TodoProvider.tsx"
+21. Add to the ```INITIAL_STATE``` in "TodoProvider.tsx", the Objecs of array of _TodoArray_.
+22. Create "TodoReducer.ts" in the "context" directory.
+23. Add the ```export const TodoReducer =```, with two arguments ```(state, action)```.
+24. Add a _switch_ operator and chante the _break_ by a _return_.
+25. Add the definiotions to "state" and " action" ```(state: TodoState, action: TodoAction)```
+26. Define the ```TodoAction``` as a type, with two options.
+27. in the _switch_ is to validate the ```action.type```.
+28. In case of 'addTodo', return the spread of state (how is the state now), and the array with a new state.
+```javascript
+case 'addTodo':
+      return {
+        ...state,
+        todoArray: [...state.todoArray, action.payload]
+      };
+```
+29. the _export_ type must be ```: TodoState```.
 
 ## License
 
