@@ -4,11 +4,14 @@ import { TimerMaster } from "./components/TimerMaster";
 import { CounterRed } from "./components/CounterRed";
 import { Form } from './components/Form';
 import { Form2 } from './components/Form2';
+import { Todo } from './todo/Todo';
 
 function App() {
   return (
     <>
       <h1>React + Typescript</h1>
+      <hr />
+      <Todo/>
       <hr />
       <h2>customHooks</h2>
       <Form/>

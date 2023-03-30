@@ -50,7 +50,7 @@ export const Form = () => {
         />
       </div>
       <div className="mb-3">
-        <label className="form-label">Nombre:</label>
+        <label className="form-label">Edad:</label>
         <input
           type="number"
           className="form-control"
