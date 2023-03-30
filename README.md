@@ -105,7 +105,7 @@ root.render(
 [React + TypeScript: useState](https://www.youtube.com/watch?v=m38MANQfjvo)
 1. Create into "src" directory another called "components" directory.
 2. Create a file called "Counter.tsx" file.
-3. Write "rafc" and it will complete the bacic element of this component file.
+3. Write "_rafc_" and it will complete the bacic element of this component file.
 4. Always delete the first line:
 ```javascript
 import React from 'react'
@@ -118,7 +118,7 @@ const [counter, setcounter] = useState(0);
 ```
 7. the "Counter.tsx" file fill have an "State" value (number) and three buttons to add 1, add 2 and back to 0.
 8. Create another component called "Users.tsx".
-9. Remember "rafc" snipet and delete the first line.
+9. Remember "_rafc_" snipet and delete the first line.
 10. Add in "App.tsx" the "Users" component
 11. Play with and object for the user.
 12. Add an _Interface_ to define the structure of the Object.
@@ -127,7 +127,7 @@ const [counter, setcounter] = useState(0);
 [React + TypeScript: useEffect + useRef + Custom Props](https://www.youtube.com/watch?v=gEFnZAj1qEE)
 
 1. Some stetical adjust to "Counter" and "User" components.
-2. Add a Component called "TimerMaster", remember "rafc" snipet and delete the first line.
+2. Add a Component called "TimerMaster", remember "_rafc_" snipet and delete the first line.
 3. Add component "Timer.tsx" to feed the "TimerMaster".
 4. this is the basic component "Timer":
 ```javascript
@@ -160,7 +160,7 @@ ref.current=setInterval(()=> setSegundos(s => s+1), milliseconds);
 ## 3. useReducer
 [React + TypeScript: useReducer](https://www.youtube.com/watch?v=jJJNocMtGCg)
 
-1. Create a new component called "CounterRed" as _reducer_, remember "rafc" snipet and delete the first line.
+1. Create a new component called "CounterRed" as _reducer_, remember "_rafc_" snipet and delete the first line.
 2. Add to "App.tsx".
 3. Changes in "CounterRed": 
 - Definition of _ActionType_ : Separted by a pipe (```|```).
@@ -171,7 +171,7 @@ ref.current=setInterval(()=> setSegundos(s => s+1), milliseconds);
 [React + TypeScripts: customHooks](https://www.youtube.com/watch?v=HrV0HeGnzIw)
 
 1. Change the Order in the "App.tsx" file.
-2. Create a "Form.tsx" file, "rafc" snipet and delete the first line.
+2. Create a "Form.tsx" file, "_rafc_" snipet and delete the first line.
 3. Add the "Form" to "App.tsx" file
 4. Change in "Form.tsx", the ```<div>``` by the ```<form>```.
 5. Complete the Form with data to ask to user as: Email and Name.
@@ -182,7 +182,7 @@ ref.current=setInterval(()=> setSegundos(s => s+1), milliseconds);
 10. Improvement into "handreChange_ to define in a const: ```const {name, value} = target;```.
 11. Create a "hooks" directory.
 12. Create a file "useForm.tsx". The Hoolks always start with "use" word.
-13. Write "rafc" snipent and delete the first line and the elements inside the function.
+13. Write "_rafc_" snipent and delete the first line and the elements inside the function.
 14. Create an exported function, and copy the form 4 to 14 lines.
 15. In Form get the posible fields as argument:
  ```export const useForm = ( initState: any ) => {```.
@@ -204,6 +204,38 @@ export const useForm = <T extends Object>(initState: T ) => {
  21. Return form "useForm" all include the "form" as unstructured way: ```return { form, handleChange, ...form };```
  22. I can get the values in the return: ```const { form, handleChange, email, nombre, edad } = useForm<FormData>```
  23. And use without this line : ```// const {email, nombre, edad}=form;```
+
+## 5. useContext , createContext, ContextProvider
+[React + TypeScript: useContext , createContext, ContextProvider](https://www.youtube.com/watch?v=8HE657KssxE)
+1. The sugestion for this new task is create another projerc, but I'll just add to the "App.tsx" file.
+2. Add a new module or directory into "scr" called "todo".
+3. Add thos directories into "todo":
+- "components"
+- "context"
+- "hooks"
+- "interfaces"
+4. Add a file called "Todo.tsx" into "todo" directory, remember "_rafc_" snipet and delete the first line. This is how it looks like:
+![Todo Exercise](images/2023-03-28_175934.png).
+ 5. Add in "todo.tsx" file some elements as: ```<ul> <li><li/> <ul> ```
+ 6. Let's go to prepare the _context_ into "context" directory add a file called "TodoContext.ts".
+ 7. Just add a _createContext_ and it will add the react importation: ```import { createContext } from "react";```
+ 8. Add the basic line to export the _context_: ```export const TodoContext = createContext({});```
+ 9. Create in "context" a file called "TodoProvider.tsx", write "_rafc_" and delete the first line.
+ 10. Change the ```<div>``` by ```<TodoContext.Provider>```, and import the ```{TodoContext}```.
+ 10. Inside the ```<TodoContext.Provider>``` add the ```{children}```
+ >>A higher-order component (HOC) is an advanced technique in React for reusing component logic. HOCs are not part of the React API, per se. They are a pattern that emerges from React's compositional nature. Concretely, a higher-order component is a function that takes a component and returns a new component.
+ 11. Delete the first line ```import { Children } from 'react';``` and the word _childre_ is in lowercaps.
+ 12. In the line with ```imporrt``` pot into pharentesis this value ```{children}:any```. The ```children``` is a _props_ .
+ 13. add in TodoContextProvider this "value={{}}", is is the expected result: ```<TodoContext.Provider value={{}}>```.
+14. Add an _interface_ called "props", as an object with those values:
+```javascript
+interface props{
+  children: JSX.Element | JSX.Element[]
+}
+```
+15. Change the "any" in the ```export``` line by "props" , the new interface.
+16.3 Add the "TodoProvider" in the "Todo.tsx" it is the roor, and I'll need all the info from there: ```<TodoProvider>```
+16. Remember to import into "Todo.tsx" the "TodoProvider": ```import { TodoProvider } from './context/TodoProvider';```
 
 ## License
 
