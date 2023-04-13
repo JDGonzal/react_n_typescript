@@ -262,6 +262,68 @@ case 'addTodo':
       };
 ```
 29. the _export_ type must be ```: TodoState```.
+30. put a ```useReducer```, import it and use an snipet.
+31. Change the values in this ```useReducer```, for this one:
+```javascript
+const [todoState, dispatch] = useReducer(todoReducer, INITIAL_STATE);
+```
+32. For "TodoContext.Provier" we can return the "todoState".
+33. Create a New component called "TodoList.tsx", write the snipet "rafc" and delete the first line.
+34. change the ```<div>``` by a ```<ul>```.
+35. use the new Component into "Todo.tsx" file, changing all the previous ```<ul>``` element.
+36. Add a "useContext" like this: ``` const context = useContext(TodoContext);```, and import the "useContext" from react.
+37. Add in "TodoContext.tsx" the elements to use in "TodoList.tsx":
+```javascript
+export type TodoContextProps ={
+  todoState: TodoState;
+}
+```
+38. Put the type in the "createContext": 
+```javascript
+export const TodoContext = createContext<TodoContextProps>({} as TodoContextProps);
+```
+> We createing the reducer to manage the state. Putting all Reducer State in the Provider.
+
+39. Change in "TodoList.tsx" the dispatch by "todoState, like this: 
+```javascript
+const {todoState} = useContext(TodoContext);
+```
+40. Extract from "TodoState" my arrays from "todoArray". ```const {todoArray} = todoState;```.
+41. Just for test add a list of "TodoArray" into the ```<ul>``` element:
+```javascript
+  <ul>
+    {todoArray.map(todo => todo.description)}
+  </ul>
+```
+42. Create a nwe componet called "TodoItem.tsx", write "rafc" snipet and delete the first line.
+43. Add a _interface_ called "TodoItemProps" into "TodoItem.tsx" file, with thos fields:
+```javascript
+interface todoItemProps {
+  todo: Todo
+}
+```
+44. Chante the ```<div>``` by the element ```<li>```, like this:
+```javascript
+  <li>
+    {todo.description}
+  </li>
+```
+45. Add the ```<TodoItem/>``` in "TodoList.tsx" file.
+46. Add in "TodoItem.tsx" file an _event_ in the ```<li>``` like a Double Click.
+47. Add the function in this "TodoItem.tsx" file: 
+```javascript
+const handleDbClick = () =>{ 
+  console.log('handleDbClick:', todo.description);
+}
+```
+48. in "TodoListtsx" file change the simple strinf byt e component from "TodoItem.tsx" file: 
+```javascript
+<ul>
+  {todoArray.map((todo) => (
+    <TodoItem key={todo.id} todo={todo} />
+  ))}
+</ul>
+```
 
 ## License
 
