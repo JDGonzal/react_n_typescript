@@ -261,16 +261,16 @@ case 'addTodo':
         todoArray: [...state.todoArray, action.payload]
       };
 ```
-29. the _export_ type must be ```: TodoState```.
-30. put a ```useReducer```, import it and use an snipet.
+29. The _export_ type must be ```: TodoState```.
+30. Put a ```useReducer```, import it and use an snipet.
 31. Change the values in this ```useReducer```, for this one:
 ```javascript
 const [todoState, dispatch] = useReducer(todoReducer, INITIAL_STATE);
 ```
 32. For "TodoContext.Provier" we can return the "todoState".
 33. Create a New component called "TodoList.tsx", write the snipet "rafc" and delete the first line.
-34. change the ```<div>``` by a ```<ul>```.
-35. use the new Component into "Todo.tsx" file, changing all the previous ```<ul>``` element.
+34. Change the ```<div>``` by a ```<ul>```.
+35. Use the new Component into "Todo.tsx" file, changing all the previous ```<ul>``` element.
 36. Add a "useContext" like this: ``` const context = useContext(TodoContext);```, and import the "useContext" from react.
 37. Add in "TodoContext.tsx" the elements to use in "TodoList.tsx":
 ```javascript
@@ -295,14 +295,14 @@ const {todoState} = useContext(TodoContext);
     {todoArray.map(todo => todo.description)}
   </ul>
 ```
-42. Create a nwe componet called "TodoItem.tsx", write "rafc" snipet and delete the first line.
+42. Create a new componet called "TodoItem.tsx", write "rafc" snipet and delete the first line.
 43. Add a _interface_ called "TodoItemProps" into "TodoItem.tsx" file, with thos fields:
 ```javascript
 interface todoItemProps {
   todo: Todo
 }
 ```
-44. Chante the ```<div>``` by the element ```<li>```, like this:
+44. Change the ```<div>``` by the element ```<li>```, like this:
 ```javascript
   <li>
     {todo.description}
@@ -316,13 +316,55 @@ const handleDbClick = () =>{
   console.log('handleDbClick:', todo.description);
 }
 ```
-48. in "TodoListtsx" file change the simple strinf byt e component from "TodoItem.tsx" file: 
+48. Change in "TodoListsx" file the simple string by the component from "TodoItem.tsx" file: 
 ```javascript
 <ul>
   {todoArray.map((todo) => (
     <TodoItem key={todo.id} todo={todo} />
   ))}
 </ul>
+```
+49. Add in "TodoProvider.ts" a function called "togleTodo".
+```javascript
+ const toggleTodo = ( id:string ) => {
+    dispatch({type: "toggleTodo", payload:{ id }})
+  }
+  ```
+  50. Return the ```togleTodo```in the ```<TodoContext.Provider``` in "TodoProvider.tsx". 
+  51. Remember add in "TodoContext.ts" this new element:
+  ```javascript
+  export type TodoContextProps ={
+  todoState: TodoState;
+  toggleTodo: ( id:string ) => void;
+}
+```
+52. Add Style in "TodoItem.tsx" file: ```style={{
+      cursor:'pointer',
+      textDecoration:todo.complete?'line-through':''
+    }}```
+
+53. Add in "TodoItem,tsx" a _TodoContext_ and _TodoContextSnipet_: 
+```javascript
+const { toggleTodo} = useContext( TodoContext );
+```
+54. Change the "console.log" for the real command the _toggleTodo_, like this: 
+```javascript
+const handleDbClick = () =>{
+    toggleTodo( todo.id );
+  }
+```
+55. Add in "TodoReducer.ts" the action called _toggleTodo_:
+```javascript
+case 'toggleTodo':
+  return {
+    ...state,
+    todoArray: state.todoArray.map( ({...todo}) => {
+      if( todo.id === action.payload.id) {
+        todo.complete =!todo.complete;
+      }
+      return todo;
+    })
+  }
 ```
 
 ## License
