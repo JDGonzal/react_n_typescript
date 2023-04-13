@@ -31,10 +31,16 @@ interface props {
 export const TodoProvider = ({ children }: props) => {
   // Just for semantic sense, change "state" to "todoState"
   const [todoState, dispatch] = useReducer(todoReducer, INITIAL_STATE);
+
+  const toggleTodo = ( id:string ) => {
+    dispatch({type: "toggleTodo", payload:{ id }})
+  }
+
   return (
     <TodoContext.Provider
       value={{
         todoState,
+        toggleTodo,
       }}
     >
       {/* It will be as a "Higher-order Component */}

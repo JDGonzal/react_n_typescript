@@ -13,7 +13,16 @@ export const todoReducer = (state: TodoState, action: TodoAction):TodoState => {
         ...state,
         todoArray: [...state.todoArray, action.payload]
       };
-
+    case 'toggleTodo':
+      return {
+        ...state,
+        todoArray: state.todoArray.map( ({...todo}) => {
+          if( todo.id === action.payload.id) {
+            todo.complete =!todo.complete;
+          }
+          return todo;
+        })
+      }
     default:
       return state;
   }
