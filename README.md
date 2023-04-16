@@ -366,6 +366,58 @@ case 'toggleTodo':
     })
   }
 ```
+56. Create a custom Hook, called "useTodos.ts"
+57. Add the simple arrow-function ```export const useTodos =() =>{}```
+58. Add a _useContext_ like this:
+```javascript
+const { todoState, toggleTodo} = useContext(TodoContext);
+```
+59. Return the Array of Todo, in a simple waw:
+```javascript
+return {
+    todoArray: todoState.todoArray,
+    toggleTodo: toggleTodo
+  }
+```
+60. If Add this ```const { todoArray} = todoState;```, the return could be  like this:
+```javascript
+ return {
+    todoArray: todoArray,
+    toggleTodo: toggleTodo
+  }
+```
+61. Add in the Return, below the "todoArray" a "pendingTodoArray", this is the final return:
+```javascript
+return {
+    todoArray: todoArray,
+    pendingTodoArray: todoArray.filter( todo => !todo.complete ).length,
+    toggleTodo: toggleTodo
+  }
+```
+62. Use the new hook called "useTodos" in "TodoList.tsx" file, and those are the changes:
+```javascript
+  // const { todoState } = useContext(TodoContext);
+  // const { todoArray } = todoState;
+  const { todoArray} =useTodos();
+```
+63. Use the new hook called "useTodos" in "TodoItem.tsx" file, and those are the changes:
+```javascript
+  //const { toggleTodo} = useContext( TodoContext );
+  const { toggleTodo } =useTodos();
+```
+64. Put the elements of the function called _handleDbClick_ into the ```<li ...onDoubleClick=...()>``` process. This is the final ```<li>```:
+
+```javascript
+  <li style={{
+    cursor:'pointer',
+    textDecoration:todo.complete?'line-through':''
+  }} onDoubleClick={ () =>  toggleTodo( todo.id )}>
+    {todo.description}
+  </li>
+```
+65. Create a "TodoTitle.tsx" component, to show the quantity of pendings ( Write _rafc_ and delete the first line).
+66. Att the ```<TodoTitle/>```to "Todo.tsx" file.
+
 
 ## License
 
